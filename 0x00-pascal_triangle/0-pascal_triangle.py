@@ -8,7 +8,7 @@ def pascal_triangle(n):
     """
     Takes in a row number and returns the list of lists of numbers in each row.
     Args:
-        n - the row number starting from 0(first row);
+        n - the row number starting from 1(first row);
     Return:
         List of lists of numbers in each row.
     """
@@ -19,8 +19,8 @@ def pascal_triangle(n):
     previous_row = current_row
     current_row_number = 1
 
-    if n == 0:
-        return [1]
+    if n <= 0:
+        return []
     while current_row_number < n:
         current_row = get_current_row(current_row_number, previous_row)
         whole_triangle_list.append(current_row)
