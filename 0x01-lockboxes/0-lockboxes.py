@@ -11,6 +11,7 @@ def canUnlockAll(boxes):
         boxes - a list of lists containing keys.
     Return: True or False
     """
+    boxesList = [x for x in range(len(boxes))]
     unlockedBoxes = [0]  # First box is always unlocked.
     index = 0
 
@@ -18,10 +19,10 @@ def canUnlockAll(boxes):
         currentIndex = unlockedBoxes[index]
         currentBox = boxes[currentIndex]
         for key in currentBox:
-            if key not in unlockedBoxes:
+            if key not in unlockedBoxes and key in range(len(boxes)):
                 unlockedBoxes.append(key)
         index += 1
 
-    if index == len(boxes):
+    if boxesList == sorted(unlockedBoxes):
         return True
     return False
