@@ -12,7 +12,7 @@ def minOperations(n):
     The only operations allowed are 'copy all' and 'paste'.
     """
     number_of_operations = 0
-    if n < 1:
+    if n <= 1:
         return 0
     while isPrime(n) is False:
         if n % 2 == 0:
@@ -35,7 +35,7 @@ def isPrime(num):
     """
     Checks if a number is prime.
     """
-    if num == 2 or num == 1 or num == 5 or num == 3:
+    if num in [1, 2, 3, 5]:
         return True
     if num % 2 == 0 or addDigits(num) % 3 == 0 or num % 5 == 0:
         return False
