@@ -27,8 +27,11 @@ def minOperations(n):
             number_of_operations += 5
             n = n // 5
         else:
-            n = int(math.sqrt(n))
-            number_of_operations += n
+            for number in range(2, int(math.sqrt(n)) + 1):
+                if n % number == 0:
+                    n = n // number
+                    number_of_operations += number
+                    break
     number_of_operations += n
     return number_of_operations
 
@@ -39,21 +42,12 @@ def isPrime(num):
     """
     if num in [1, 2, 3, 5]:
         return True
-    if num % 2 == 0 or addDigits(num) % 3 == 0 or num % 5 == 0:
+    if num % 2 == 0 or num % 3 == 0 or num % 5 == 0:
         return False
+    # If the number is divisible by any of the prime numbers
+    # less than its square root,
+    # it is not a prime number; otherwise, it is prime.
     for number in range(2, int(math.sqrt(num)) + 1):
         if num % number == 0:
             return False
     return True
-
-
-def addDigits(num):
-    """
-    Adds the digits in a number.
-    """
-    sum_of_digits = 0
-    while num != 0:
-        sum_of_digits += num % 10
-        num = num // 10
-
-    return sum_of_digits
