@@ -11,7 +11,8 @@ def minOperations(n):
     to result in exactly n H characters in the file.
     The only operations allowed are 'copy all' and 'paste'.
     Note:
-        If number is divisible by any number (> 1) below its square root then it's not prime.
+        If number is divisible by any number (> 1) below its square root
+        then it's not prime.
     """
     if n <= 1:
         return 0
