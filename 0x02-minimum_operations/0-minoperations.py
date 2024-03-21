@@ -11,9 +11,11 @@ def minOperations(n):
     to result in exactly n H characters in the file.
     The only operations allowed are 'copy all' and 'paste'.
     """
-    number_of_operations = 0
     if n <= 1:
         return 0
+
+    number_of_operations = 0
+
     while isPrime(n) is False:
         if n % 2 == 0:
             number_of_operations += 2
@@ -39,9 +41,10 @@ def isPrime(num):
         return True
     if num % 2 == 0 or addDigits(num) % 3 == 0 or num % 5 == 0:
         return False
-    if (int(math.sqrt(num))) ** 2 != num:
-        return True
-    return False
+    for number in range(2, int(math.sqrt(num)) + 1):
+        if num % number == 0:
+            return False
+    return True
 
 
 def addDigits(num):
